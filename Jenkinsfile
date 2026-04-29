@@ -9,23 +9,19 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch:'main',url:'https://github.com/VarshithaJ13/maven.git'
+                git 'https://github.com/VarshithaJ13/maven.git'
             }
         }
 
         stage('Build') {
             steps {
-                dir('demo') {
-                    bat 'mvn clean install'
-                }
+                bat 'mvn clean install'
             }
         }
 
         stage('Test') {
             steps {
-                dir('demo') {
-                    bat 'mvn test'
-                }
+                bat 'mvn test'
             }
         }
     }
